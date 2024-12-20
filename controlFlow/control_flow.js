@@ -42,3 +42,23 @@ console.log("User Category:", userCategory);
 let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 console.log("Authentication Status:", authenticationStatus);
+
+let dietaryServicesRole="Subscriber";
+let dietaryServicesAccess;
+switch ( dietaryServicesRole )
+{
+    case "Employee":
+        dietaryServicesAccess = "Dietary Services access authorized";
+        break;
+    case "Enrolled Member":
+        dietaryServicesAccess = "Dietary Services access authorized with consultations";
+        break;
+    case "Subscriber":
+        dietaryServicesAccess = "Dietary Services limited access";
+        break;
+    default:
+        dietaryServicesAccess = "Dietary Services access not authorized";
+        break;
+    
+}
+console.log("Dietary Services: ", dietaryServicesAccess);
