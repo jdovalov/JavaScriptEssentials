@@ -1,4 +1,5 @@
 function submitFeedback() {
+	// extract data from form
 	const username = document.getElementById('name').value;
 	const age = document.getElementById('age').value;
 	const email = document.getElementById('email').value;
@@ -6,9 +7,12 @@ function submitFeedback() {
 	const designation = document.getElementById('designation').value;
 	const productType = document.getElementById('productType').value;
 	const feedback = document.getElementById('feedbackText').value;
+	const experience = document.getElementById('experience').value;
 
+	// pretend to submit form
 	alert('Thank you for your valuable feedback')
 
+	// populate results
 	document.getElementById('userName').innerHTML = username;
 	document.getElementById('userAge').innerHTML = age;
 	document.getElementById('userEmail').innerHTML = email;
@@ -16,12 +20,17 @@ function submitFeedback() {
 	document.getElementById('userDesignation').innerHTML = designation;
 	document.getElementById('userProductChoice').innerHTML = productType;
 	document.getElementById('userFeedback').innerHTML = feedback;
+	document.getElementById('userExperience').innerHTML = experience;
+
+	// make results visible
 	document.getElementById('userInfo').style.display = 'block';
 }
 
+// submit on button press
 const submitButton=document.getElementById('submitBtn');
 submitButton.onclick = submitFeedback;
 
+// submit when pressing enter
 document.addEventListener('keydown', function(event) {
 	if (event.key === 'Enter') {
 		submitFeedback();
