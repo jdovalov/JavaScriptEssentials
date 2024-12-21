@@ -1,6 +1,6 @@
-const breakfastMenu = ['Pancakes', 'Eggs Benedict', 'Oatmeal', 'Frittata'];
-const mainCourseMenu = ['Steak', 'Pasta', 'Burger', 'Salmon'];
-const dessertMenu = ['Cake', 'Ice Cream', 'Pudding', 'Fruit Salad'];
+const breakfastMenu = ['Pancakes - $12', 'Eggs Benedict - $16.99', 'Oatmeal - $5.99', 'Frittata - $15'];
+const mainCourseMenu = ['Steak - $35', 'Pasta - $15', 'Burger - $14', 'Salmon - $18'];
+const dessertMenu = ['Cake - $6', 'Ice Cream - $5', 'Pudding - $5', 'Fruit Salad - $6'];
 
 // add items to HTML: example using map for breakfast menu
 const breakfastMenuItemsHTML = breakfastMenu.map((item,index)=>`<p>Item ${index+1}: ${item}</p>`).join('');
