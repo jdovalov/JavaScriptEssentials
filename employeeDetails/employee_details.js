@@ -6,10 +6,20 @@ const employees = [
       //... More employee records can be added here
 ];
 
+// Function to format employee as HTML
+const employeeToHTML = (employee,..._) =>
+	`<p>${employee.id}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`;
+
+// Function to display selected employees
+function displaySelectedEmployees(employeeList){
+	const employeeListHTML = employeeList.map((employee, index) => employeeToHTML(employee)).join('');
+        document.getElementById('employeesDetails').innerHTML = employeeListHTML;
+}
+
+
 // Function to display all employees
 function displayEmployees() {
-	const totalEmployees = employees.map((employee, index) => `<p>${employee.id}: ${employee.name}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`).join('');
-        document.getElementById('employeesDetails').innerHTML = totalEmployees;
+	displaySelectedEmployees(employees);
 }
 
 function calculateTotalSalaries() {
@@ -18,15 +28,14 @@ function calculateTotalSalaries() {
 }
 
 function displayHREmployees() {
-     const hrEmployees = employees.filter(employee => employee.department === 'HR');
-      const hrEmployeesDisplay = hrEmployees.map((employee, index) => `<p>${employee.id}: ${employee.name}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`).join('');
-      document.getElementById('employeesDetails').innerHTML = hrEmployeesDisplay;
+	const hrEmployees = employees.filter(employee => employee.department === 'HR');
+	displaySelectedEmployees(hrEmployees);
 }
 
 function findEmployeeById(employeeId) {
     const foundEmployee = employees.find(employee => employee.id === employeeId);
     if (foundEmployee) {
-	document.getElementById('employeesDetails').innerHTML =`<p>${foundEmployee.id}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - $${foundEmployee.salary}</p>`;
+	document.getElementById('employeesDetails').innerHTML = employeeToHTML(foundEmployee);
     }
     else{
         document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
@@ -36,7 +45,7 @@ function findEmployeeById(employeeId) {
 function findEmployeeBySpecialization(employeeSpecialization) {
     const foundEmployee = employees.find(employee => employee.specialization === 'JavaScript');
     if (foundEmployee) {
-	document.getElementById('employeesDetails').innerHTML =`<p>${foundEmployee.id}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - $${foundEmployee.salary}</p>`;
+	document.getElementById('employeesDetails').innerHTML = employeeToHTML(foundEmployee);
     }
     else{
         document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
