@@ -6,6 +6,7 @@ function startTest() {
 	var userInputBox = document.getElementById("userInput");
 	userInputBox.value = "";
 	userInputBox.readOnly = false;
+	userInputBox.focus();
 	
 	// Set the test text
 	document.getElementById("inputText").value = testText;
@@ -54,3 +55,9 @@ function endTest() {
 	button.innerHTML = "Start Test";
 	button.onclick = startTest;
 }
+
+document.getElementById("userInput").addEventListener("keypress",function(event){
+	if ( event.key === "Enter" ){
+		endTest();
+	}
+});
