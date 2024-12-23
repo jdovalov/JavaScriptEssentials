@@ -2,6 +2,11 @@ let testText = "The quick brown fox jumps over the lazy dog.";
 let startTime, endTime;
 
 function startTest() {
+	// clear the user typing area
+	var userInputBox = document.getElementById("userInput");
+	userInputBox.value = "";
+	userInputBox.readOnly = false;
+	
 	// Set the test text
 	document.getElementById("inputText").value = testText;
 	
