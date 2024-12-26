@@ -6,12 +6,21 @@
 <body>
    <h1>Weather Report</h1>
 
-  <form id="weatherForm">
+  <form id="apikeyform">
 	<label for="key">Enter openweathermap API Key:</label><br/>
     <input type="text" id="key" name="key"><br/>
+  </form>
+  <form id="weatherForm">
     <label for="city">Enter City:</label><br/>
     <input type="text" id="city" name="city"><br/>
     <button type="submit">Get Weather</button>
+  </form>
+  <form id="weatherFormCoords">
+    <label for="lat">Enter Latitude:</label>
+    <input type="text" id="lat" name="lat"><br/>
+    <label for="lon">Enter Longitude:</label>
+    <input type="text" id="lon" name="lon"><br/>
+    <button type="submitCoords">Get Weather</button>
   </form>
 
   <div id="weatherInfo"></div>
