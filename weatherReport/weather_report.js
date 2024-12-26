@@ -25,8 +25,20 @@ function showweatherDetails(event) {
 function showweatherDetailsCoords(event) {
 	event.preventDefault();
 	  
-	const lat = document.getElementById('lat').value;
-	const lon = document.getElementById('lon').value;
+	var lat = document.getElementById('lat').value;
+	if ( lat.endsWith("N") ){
+		lat = +lat.substring(0,lat.length-1)
+	} else if ( lat.endsWith("S") ){
+		lat = -lat.substring(0,lat.length-1)
+	}
+	var lon = document.getElementById('lon').value;
+	if ( lon.endsWith("E") ){
+		lon = +lon.substring(0,lon.length-1)
+	} else if ( lon.endsWith("W") ){
+		lon = -lon.substring(0,lon.length-1)
+	} else {
+		lon = +lon;
+	}
 	const apiKey = document.getElementById('key').value;
 	const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
